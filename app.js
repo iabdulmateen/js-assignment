@@ -159,3 +159,122 @@ let containsDog = text.includes("dog");
 let charAtTen = text.charAt(10);
 
 console.log(position,extractedText,containsDog,charAtTen);
+
+// Question 11: String Replacement
+// Given sentence = "I love JavaScript and JavaScript is awesome":
+
+// Replace the first "JavaScript" with "coding"
+// Replace ALL "JavaScript" with "JS"
+// Replace "awesome" with uppercase "AWESOME"
+
+let sentence = "I love JavaScript and JavaScript is awesome";
+
+let first = sentence.replace("JavaScript", "coding");
+
+let all = sentence.replaceAll("JavaScript", "JS");
+
+let awesome = sentence.replace("awesome", "awesome".toUpperCase());
+
+console.log(first,all,awesome);
+
+// Question 12: Number Rounding and Formatting
+// Given num = 123.456789:
+
+// Round to 2 decimal places
+// Round to nearest integer
+// Get the floor value
+// Get the ceiling value
+// Format to show exactly 4 decimal places
+
+let num = 123.456789;
+let rd = Math.round(num * 100) / 100;
+let rt = Math.round(num);
+let fn = Math.floor(num);
+let cn = Math.ceil(num);
+let ed = num.toFixed(4);
+console.log(rd,rt,fn,cn,ed);
+
+// Question 13: Random Number Generation
+// Generate:
+
+// A random integer between 1 and 100 (inclusive)
+// A random decimal between 0 and 1 with 3 decimal places
+// A random number between 50 and 75 (inclusive)
+
+let random1To100 = Math.floor(Math.random() * 100 ) + 1;
+let randomDeci = Number( Math.random().toFixed(3));
+let random50To75= Math.floor(Math.random() * (75 - 50 + 1) ) + 50;
+
+console.log(random1To100,randomDeci,random50To75);
+
+// Question 14: Type Conversion
+// Perform these conversions:
+
+// Convert string "123" to number
+// Convert string "45.67" to decimal (float)
+// Convert number 789 to string
+// Check the type of "true" after converting to boolean
+
+let sn = "123";
+let num1 = Number(sn)
+ 
+let sf = "45.67";
+let num2 = parseFloat(sf);
+
+let ns = 789 ;
+let string = ns.toString();
+
+let sb = "true";
+let boolean = JSON.parse(sb);
+let typeCheck = typeof boolean ;
+
+console.log(num1,num2,string,typeCheck);
+
+
+// Question 15: Date and Time Operations
+// Create a Date object for the current time and:
+
+// Extract the year, month (0-11), and day
+// Get the hours in 24-hour format
+// Format it as "YYYY-MM-DD"
+// Create a specific date for December 25, 2024
+
+let currentTime = new Date();
+
+let year = currentTime.getFullYear();
+let month = currentTime.getMonth();
+let day = currentTime.getDate();
+
+let hours = currentTime.getHours();
+
+let fMonth = String(month + 1).padStart(2, "0");
+let fDay = String(day).padStart(2, "0");
+let fDate = `${year}-${fMonth}-${fDay}`;
+
+let sDate = new Date(2006,1,12);
+
+console.log(currentTime,year,month,day,hours);
+console.log(fDate);
+console.log(sDate);
+
+// Question 16: Function - Basic Calculator
+// Write a function calculate that takes two numbers and an operator (+, -, *, /) as parameters and returns the result.
+//  Handle division by zero by returning "Error: Division by zero".
+
+function calculatNum(numb1,numb2,operator){
+    if(operator === "+"){
+       return numb1 + numb2;
+    }else if(operator === "-"){
+        return numb1 - numb2 ;
+    }else if(operator === "*"){
+        return numb1 * numb2 ;
+    }else if(operator === "/"){
+        if(numb2 === 0 ){
+            return "Error: Division by zero";
+        }
+        return numb1 / numb2;
+    }else{
+        return "Invalid Operator"
+    }
+}
+console.log(calculatNum(2,2,"+"));
